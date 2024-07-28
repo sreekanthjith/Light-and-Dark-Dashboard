@@ -1,0 +1,337 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-lime-green: hsl(163, 72%, 41%);
+  --clr-bright-red: hsl(356, 69%, 56%);
+  --clr-facebook: hsl(208, 92%, 53%);
+  --clr-twitter: hsl(203, 89%, 53%);
+  --clr-instagram: linear-gradient(
+    to right,
+    hsl(37, 97%, 70%),
+    hsl(329, 70%, 58%)
+  );
+  --clr-youTube: hsl(348, 97%, 39%);
+  /*Light Mode Colors*/
+  --clr-bg: hsl(0, 0%, 100%);
+  --clr-top-bg-pattern: hsl(225, 100%, 98%);
+  --clr-card-bg: hsl(227, 47%, 96%);
+  --clr-text-color: hsl(228, 12%, 44%);
+  --clr-text-bold-color: hsl(230, 17%, 14%);
+  --clr-toggle-bg: hsl(230, 22%, 74%);
+  --clr-hover:#e1e3f0;
+  /*font-weight*/
+  --fw-normal: 400;
+  --fw-bold: 700;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+  /*Dark Mode Colors*/
+.darkmode {
+  --clr-bg: hsl(230, 17%, 14%);
+  --clr-top-bg-pattern: hsl(232, 19%, 15%);
+  --clr-card-bg: hsl(228, 28%, 20%);
+  --clr-text-color: hsl(228, 34%, 66%);
+  --clr-text-bold-color: hsl(0, 0%, 100%);
+  --clr-toggle-bg: linear-gradient(
+    to right,
+    hsl(210, 78%, 56%),
+    hsl(146, 68%, 55%)
+  );
+  --clr-hover:#333a56;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: var(--fw-normal);
+  font-size: 1.4rem;
+  background-color: var(--clr-bg);
+  color: var(--clr-text-color);
+  transition: 0.3s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: var(--fw-bold);
+}
+
+header {
+  position: relative;
+  height: 24rem;
+  width: 100%;
+  z-index: 1;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--clr-top-bg-pattern);
+  border-radius: 0 0 2rem 2rem;
+  z-index: 2;
+}
+
+.container {
+  position: relative;
+  padding-inline: 2.5rem;
+  margin: 0 auto;
+  max-width: 1170px;
+  z-index: 3;
+}
+
+.container .dashboard-header {
+  position: relative;
+  padding: 3.7rem 0 0 0;
+}
+
+.container .dashboard-header h1 {
+  font-size: 2.4rem;
+  color: var(--clr-text-bold-color);
+}
+
+.container .dashboard-header p {
+  margin-top: 0.3rem;
+  font-weight: var(--fw-bold);
+  margin-bottom: 2.3rem;
+}
+
+.container .dashboard-header .button {
+  margin-top: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.container .dashboard-header .button .toggle {
+  position: relative;
+  display: block;
+  width: 4.5rem;
+  height: 2.3rem;
+  border-radius: 16rem;
+  background: var(--clr-toggle-bg);
+  transition: all 0.5s ease-in-out;
+}
+
+.container .dashboard-header .button .toggle .indicator {
+  position: absolute;
+  top: 50%;
+  left: 2.4rem;
+  transform: translateY(-50%);
+  width: 1.8rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--clr-card-bg);
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.container .dashboard-header .button .toggle.active .indicator {
+  left: 0.3rem;
+}
+
+.container .dashboard-header .button span {
+  font-weight: var(--fw-bold);
+}
+
+.container .dashboard-body .box {
+  position: relative;
+  background-color: var(--clr-card-bg);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3.4rem 0 2rem 0;
+  border-top-width: 0.3rem;
+  border-top-style: solid;
+  border-color: var(--border-color);
+  transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.container .dashboard-body .instagram {
+  border-style: none;
+}
+
+.container .dashboard-body .instagram::before {
+  content: "";
+  position: absolute;
+  top: -0.3rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  border-radius: 0.5rem;
+  background: var(--clr-instagram);
+}
+
+.container .dashboard-body .box:first-child {
+  margin-top: -5.2rem;
+}
+
+.container .dashboard-body .box:not(:first-child) {
+  margin-top: 2.5rem;
+}
+
+.container .dashboard-body .box .box-top {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.container .dashboard-body .box .box-top span {
+  font-weight: var(--fw-bold);
+  font-size: 1.2rem;
+  color: var(--color);
+}
+
+.container .dashboard-body .box h2 {
+  margin-top: 2.3rem;
+  font-size: 5rem;
+  color: var(--clr-text-bold-color);
+}
+
+.container .dashboard-body .box p {
+  letter-spacing: 0.6rem;
+}
+
+.container .dashboard-body .box .box-bottom {
+  margin-top: 2.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.container .dashboard-body .box .box-bottom span {
+  font-weight: var(--fw-bold);
+}
+
+.overviews {
+  padding: 4.2rem 0 0 0;
+}
+
+.overviews .overview-title {
+  margin-bottom: 3rem;
+}
+
+.overviews .overview-title h3 {
+  font-size: 2.4rem;
+  color: var(--clr-text-bold-color);
+}
+
+.overviews .overview-box {
+  background-color: var(--clr-card-bg);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2.4rem 2.6rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.overviews .overview-box .top,
+.overviews .overview-box .bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.overviews .overview-box .bottom h5 {
+  font-size: 3rem;
+  color: var(--clr-text-bold-color);
+}
+
+.overviews .overview-box .bottom div {
+  display: flex;
+  align-items: center;
+}
+
+.overviews .overview-box .bottom div span {
+  color: var(--color);
+  font-weight: var(--fw-bold);
+}
+
+.container .dashboard-body .box:hover,
+.overviews .overview-box:hover {
+  background-color: var(--clr-hover);
+}
+
+@media (min-width: 768px) {
+  section::before {
+    height: 20%;
+  }
+  
+  hr {
+    display: none;
+  }
+
+  .container .dashboard-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .container .dashboard-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .container .dashboard-body .box {
+    width: calc(50% - 2rem);
+  }
+
+  .container .dashboard-body .box:not(:first-child),
+  .container .dashboard-body .box:first-child {
+    margin-top: 0;
+  }
+
+  .overviews .overview-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .overviews .overview-container .overview-box {
+    width: calc(50% - 2rem);
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  section::before {
+    height: 30%;
+  }
+
+  .container .dashboard-header h1 {
+    font-size: 2.8rem;
+  }
+
+  .container .dashboard-body {
+    margin-top: -11rem;
+  }
+
+  .container .dashboard-body .box,
+  .overviews .overview-container .overview-box {
+    width: calc(25% - 2rem);
+  }
+}
